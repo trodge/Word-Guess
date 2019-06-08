@@ -81,3 +81,4 @@ document.addEventListener("keypress", function (event) {
         }
     } else QAs[i].tryLetter(event.key);
 });
+document.getElementById("#textinput").focus();
