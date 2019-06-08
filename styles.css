@@ -1,5 +1,6 @@
 body {
-    background-image: url("shakespeare-clipart-shakespeare-images-public-domain-3.jpg");
-    background-size: cover;
+    height: 948px;
+    background: #3b3f2a url("shakespeare-clipart-shakespeare-images-public-domain-3.jpg") no-repeat center;
+    background-size: contain;
     color: #dddddd;
 }
