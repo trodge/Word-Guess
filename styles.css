@@ -2,5 +2,28 @@ body {
     height: 948px;
     background: #3b3f2a url("shakespeare-clipart-shakespeare-images-public-domain-3.jpg") no-repeat center;
     background-size: contain;
-    color: #dddddd;
+    color: #cccccc;
+}
+
+section, header {
+    display: flex;
+    justify-content: center;
+}
+
+header > div {
+    padding: 5px;
+    border-radius: 20px;
+}
+
+div > * {
+    margin: 5px;
+    padding: 5px;
+}
+
+div {
+    background: linear-gradient(7deg, rgba(0, 0, 0, 0.65), rgba(91, 107, 107, 0.65));
+    padding: 20px;
+    border: 3px solid#aaaaaa;
+    border-radius: 50px;
+    margin: 25px;
 }
