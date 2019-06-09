@@ -12,7 +12,7 @@ class QuestionAnswer {
         document.getElementById("question").innerHTML = this.question;
         var underscores = "";
         for (var i = 0; i < this.answer.length; ++i) {
-            if (this.answer[i] === " ") { 
+            if (this.answer[i] === " ") {
                 underscores += "&nbsp; ";
                 ++this.guessed;
             } else if ("!.,\"'".indexOf(this.answer[i]) !== -1) {
@@ -57,7 +57,7 @@ new QuestionAnswer("Two households, both alike in dignity,<br>In fair Verona, wh
 new QuestionAnswer("Romeo's last words", "Thus with a kiss I die."),
 new QuestionAnswer("Prospero's daughter", "Miranda"),
 new QuestionAnswer("Prince of Norway", "Fortinbras"),
-new QuestionAnswer("Setting of Twelfth Night","Illyria"),
+new QuestionAnswer("Setting of Twelfth Night", "Illyria"),
 new QuestionAnswer("The play Hamlet stages for Claudius", "The Murder of Gonzago"),
 new QuestionAnswer("What does Hamlet say while holding a skull?", "Alas, poor Yorick! I knew him, Horatio")]
 // Pick a random question to start with.
@@ -66,7 +66,15 @@ console.log(i);
 QAs[i].ask();
 // Track the total wrong guesses
 var wrong = 0;
-document.addEventListener("keypress", function (event) {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    // We are on mobile, add a text input
+    var listener = document.createElement("input");
+    document.getElementById("wrong").appendChild(listener);
+} else {
+    var listener = document;
+}
+
+listener.addEventListener("keypress", function (event) {
     if (QAs[i].guessed === QAs[i].answer.length) {
         // Question i has been answered
         QAs.splice(i, 1);
