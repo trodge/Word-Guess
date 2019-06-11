@@ -67,7 +67,9 @@ new QuestionAnswer("Prospero's daughter", "Miranda"),
 new QuestionAnswer("Prince of Norway", "Fortinbras"),
 new QuestionAnswer("Setting of Twelfth Night", "Illyria"),
 new QuestionAnswer("The play Hamlet stages for Claudius", "The Murder of Gonzago"),
-new QuestionAnswer("What does Hamlet say while holding a skull?", "Alas, poor Yorick! I knew him, Horatio")]
+new QuestionAnswer("What does Hamlet say while holding a skull?", "Alas, poor Yorick! I knew him, Horatio"),
+new QuestionAnswer("Othello's wife", "Desdemona"),
+new QuestionAnswer("Now is the ______ of our discontent<br>Made glorious spring by this son of York;", "winter")];
 // Pick a random question to start with.
 var i = Math.floor(Math.random() * QAs.length);
 console.log(i);
@@ -76,7 +78,7 @@ QAs[i].ask();
 var timeLeft = 60;
 // Call clock tick function every second.
 document.getElementById("clock").innerHTML = "1:00"
-window.setInterval(clockTick, 1000);
+var clockId = window.setInterval(clockTick, 1000);
 // Track the total wrong guesses
 var wrong = 0;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
@@ -94,9 +96,11 @@ listener.addEventListener("keypress", function (event) {
         QAs.splice(i, 1);
         if (QAs.length === 0) {
             // There are no more questions to ask
+            document.getElementById("clock").innerHTML = "";
             document.getElementById("question").innerHTML = "You win!";
             document.getElementById("answer").innerHTML = "";
             document.getElementById("wrong").innerHTML = "Total wrong: " + wrong;
+            window.clearInterval(clockId);
         } else {
             i = Math.floor(Math.random() * QAs.length);
             QAs[i].ask();
