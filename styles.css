@@ -26,4 +26,8 @@ div {
     border: 3px solid#aaaaaa;
     border-radius: 50px;
     margin: 25px;
+    display: block;
+}
+#clock {
+    text-align: center;
 }

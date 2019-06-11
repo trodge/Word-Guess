@@ -51,6 +51,15 @@ class QuestionAnswer {
     }
 };
 
+function clockTick() {
+    if (timeLeft) {
+        --timeLeft;
+        document.getElementById("clock").innerHTML = "0:" + timeLeft;
+    } else {
+        document.getElementById("clock").innerHTML = "Time's Up"
+    }
+}
+
 var QAs = [new QuestionAnswer("O ____, ____! wherefore art thou _____?", "Romeo"),
 new QuestionAnswer("Hamlet's mother", "Gertrude"),
 new QuestionAnswer("Two households, both alike in dignity,<br>In fair Verona, where we lay our scene.<br>From ancient grudge break to new ______,", "mutiny"),
@@ -64,6 +73,11 @@ new QuestionAnswer("What does Hamlet say while holding a skull?", "Alas, poor Yo
 var i = Math.floor(Math.random() * QAs.length);
 console.log(i);
 QAs[i].ask();
+// Track time left in seconds.
+var timeLeft = 60;
+// Call clock tick function every second.
+document.getElementById("clock").innerHTML = "1:00"
+window.setInterval(clockTick, 1000);
 // Track the total wrong guesses
 var wrong = 0;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
