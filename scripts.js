@@ -69,7 +69,8 @@ var wrong = 0;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
     // We are on mobile, add a text input
     var listener = document.createElement("input");
-    document.getElementById("wrong").appendChild(listener);
+    document.getElementsByTagName("body")[0].appendChild(listener);
+    listener.focus();
 } else {
     var listener = document;
 }
