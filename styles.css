@@ -30,4 +30,8 @@ div {
 }
 #clock {
     text-align: center;
+    background: #000000;
+    border: 3px solid #aaaaaa;
+    margin: auto;
+    width: 2em;
 }

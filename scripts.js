@@ -53,8 +53,10 @@ class QuestionAnswer {
 
 function clockTick() {
     if (--timeLeft > 0) {
+        document.getElementById("clock").style.width = "2em";
         document.getElementById("clock").innerHTML = "0:" + (timeLeft < 10 ? "0" : "") + timeLeft;
     } else {
+        document.getElementById("clock").style.width = "5em";
         document.getElementById("clock").innerHTML = "Time's Up"
     }
 }
