@@ -52,9 +52,8 @@ class QuestionAnswer {
 };
 
 function clockTick() {
-    if (timeLeft) {
-        --timeLeft;
-        document.getElementById("clock").innerHTML = "0:" + timeLeft;
+    if (--timeLeft > 0) {
+        document.getElementById("clock").innerHTML = "0:" + (timeLeft < 10 ? "0" : "") + timeLeft;
     } else {
         document.getElementById("clock").innerHTML = "Time's Up"
     }
@@ -102,5 +101,6 @@ listener.addEventListener("keypress", function (event) {
             i = Math.floor(Math.random() * QAs.length);
             QAs[i].ask();
         }
+        timeLeft = 60;
     } else QAs[i].tryLetter(event.key);
 });
