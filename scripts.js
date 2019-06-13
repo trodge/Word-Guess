@@ -108,5 +108,10 @@ listener.addEventListener("keypress", function (event) {
             QAs[i].ask();
         }
         timeLeft = 60;
-    } else QAs[i].tryLetter(event.key);
+    } else if (wrong < 13 && timeLeft > 0) QAs[i].tryLetter(event.key);
+    else {
+        document.getElementById("question").innerHTML = "Game Over!";
+        document.getElementById("answer").innerHTML = "";
+        document.getElementById("wrong").innerHTML = "Total wrong: " + wrong;
+    }
 });
